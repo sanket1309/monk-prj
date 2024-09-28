@@ -1,0 +1,1 @@
+curl --location 'http://localhost:8080/coupon/get?id=CPN-2a6ee7b7-8e25-47ea-1'

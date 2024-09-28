@@ -1,0 +1,17 @@
+curl --location 'http://localhost:8080/coupon/create' \
+--header 'Content-Type: application/json' \
+--data '{
+    "body": {
+        "coupon": {
+            "couponType": "PRODUCT_WISE_BY_CTG",
+            "couponDetails": {
+                "couponType": "PRODUCT_WISE_BY_CTG",
+                "discount": 40,
+                "productCategories": [
+                    "FOOD",
+                    "FASHION"
+                ]
+            }
+        }
+    }
+}'

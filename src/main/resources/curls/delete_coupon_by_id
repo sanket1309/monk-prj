@@ -1,0 +1,1 @@
+curl --location --request DELETE 'http://localhost:8080/coupon/delete?id=CPN-2a6ee7b7-8e25-47ea-9'

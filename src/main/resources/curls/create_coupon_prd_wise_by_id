@@ -1,0 +1,17 @@
+curl --location 'http://localhost:8080/coupon/create' \
+--header 'Content-Type: application/json' \
+--data '{
+    "body": {
+        "coupon": {
+            "couponType": "PRODUCT_WISE_BY_ID",
+            "couponDetails": {
+                "couponType": "PRODUCT_WISE_BY_ID",
+                "discount": 40,
+                "productIds": [
+                {"id": "PRD-2a6ee7b7-8e25-47ea-2"},
+                {"id": "PRD-2a6ee7b7-8e25-47ea-3"}
+                ]
+            }
+        }
+    }
+}'

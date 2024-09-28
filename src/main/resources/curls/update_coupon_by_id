@@ -1,0 +1,17 @@
+curl --location 'http://localhost:8080/coupon/create' \
+--header 'Content-Type: application/json' \
+--data '{
+    "body": {
+        "coupon": {
+            "couponId": {
+                "id": "CPN-3983e3d7-f77e-45ad-8"
+            },
+            "couponType": "CART_WISE",
+            "couponDetails": {
+                "couponType": "CART_WISE",
+                "discount": 20,
+                "threshold": 500
+            }
+        }
+    }
+}'

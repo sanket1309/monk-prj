@@ -1,0 +1,35 @@
+curl --location 'http://localhost:8080/coupon/get/applicable' \
+--header 'Content-Type: application/json' \
+--data '{
+    "body": {
+        "cart": {
+            "cartId": {
+                "id": "CRT-2a6ee7b7-8e25-47ea-0"
+            },
+            "cartItems": [
+                {
+                    "product": {
+                        "productId": {
+                            "id": "PRD-2a6ee7b7-8e25-47ea-0"
+                        },
+                        "productCategory": "FOOD",
+                        "productName": "Sugar (1KG)",
+                        "price": 45
+                    },
+                    "quantity": 10
+                },
+                {
+                    "product": {
+                        "productId": {
+                            "id": "PRD-2a6ee7b7-8e25-47ea-2"
+                        },
+                        "productCategory": "FASHION",
+                        "productName": "Shirt (42cm)",
+                        "price": 799
+                    },
+                    "quantity": 1
+                }
+            ]
+        }
+    }
+}'

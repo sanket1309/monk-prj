@@ -1,0 +1,16 @@
+curl --location 'http://localhost:8080/coupon/create' \
+--header 'Content-Type: application/json' \
+--data '{
+    "body": {
+        "coupon": {
+            "couponType": "BXGY_BY_CTG",
+            "couponDetails": {
+                "couponType": "BXGY_BY_CTG",
+                "x": 2,
+                "y": 1,
+                "productBuyCategory": ["ELECTRONICS"],
+                "productGetCategory": ["FASHION"]
+            }
+        }
+    }
+}'

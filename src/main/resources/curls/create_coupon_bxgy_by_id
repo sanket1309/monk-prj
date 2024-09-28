@@ -1,0 +1,21 @@
+curl --location 'http://localhost:8080/coupon/create' \
+--header 'Content-Type: application/json' \
+--data '{
+    "body": {
+        "coupon": {
+            "couponType": "BXGY_BY_ID",
+            "couponDetails": {
+                "couponType": "BXGY_BY_ID",
+                "x": 5,
+                "y": 1,
+                "repetitionLimit": 3,
+                "productBuyIds": [
+                    "PRD-2a6ee7b7-8e25-47ea-0"
+                ],
+                "productGetIds": [
+                    "PRD-2a6ee7b7-8e25-47ea-1"
+                ]
+            }
+        }
+    }
+}'

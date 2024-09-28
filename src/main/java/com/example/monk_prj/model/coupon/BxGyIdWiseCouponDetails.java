@@ -26,15 +26,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class BxGyIdWiseCouponDetails extends BxGyCouponDetails{
     private List<String> productBuyIds;
     private List<String> productGetIds;
-    ProductRepository productRepository;
-
-    BxGyIdWiseCouponDetails() {
-        try {
-            productRepository = new ProductRepositoryImpl();
-        }catch (Exception ex){
-
-        }
-    }
 
     public static void validate(BxGyIdWiseCouponDetails bxGyIdWiseCouponDetails){
         BxGyCouponDetails.validate(bxGyIdWiseCouponDetails);

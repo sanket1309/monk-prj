@@ -3,6 +3,7 @@ package com.example.monk_prj.model.coupon;
 import com.example.monk_prj.enums.CouponType;
 import com.example.monk_prj.model.Cart;
 import com.example.monk_prj.model.coupon.appliedcoupons.AppliedCouponCart;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.Data;
@@ -20,6 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 })
 public abstract class CouponDetails {
     private int discount;
+    @JsonIgnore
     public abstract CouponType getCouponType();
     public static void validate(CouponDetails couponDetails){
         if(couponDetails == null){
