@@ -1,0 +1,52 @@
+{
+    "products": [
+        {
+            "productId": {
+                "id": "PRD-2a6ee7b7-8e25-47ea-0"
+            },
+            "productCategory": "FOOD",
+            "productName": "Sugar (1KG)",
+            "price": 45
+        },
+        {
+            "productId": {
+                "id": "PRD-2a6ee7b7-8e25-47ea-1"
+            },
+            "productCategory": "FOOD",
+            "productName": "Oats (1KG)",
+            "price": 450
+        },
+        {
+            "productId": {
+                "id": "PRD-2a6ee7b7-8e25-47ea-2"
+            },
+            "productCategory": "FASHION",
+            "productName": "Shirt (42cm)",
+            "price": 799
+        },
+        {
+            "productId": {
+                "id": "PRD-2a6ee7b7-8e25-47ea-3"
+            },
+            "productCategory": "FASHION",
+            "productName": "Shoes (UK 9)",
+            "price": 1599
+        },
+        {
+            "productId": {
+                "id": "PRD-2a6ee7b7-8e25-47ea-4"
+            },
+            "productCategory": "ELECTRONICS",
+            "productName": "Mobile (5G 8GB,128GB)",
+            "price": 14499
+        },
+        {
+            "productId": {
+                "id": "PRD-2a6ee7b7-8e25-47ea-5"
+            },
+            "productCategory": "ELECTRONICS",
+            "productName": "Laptop (Win i5 Intel 8GB, 2TB)",
+            "price": 52999
+        }
+    ]
+}

@@ -1,0 +1,91 @@
+{
+    "coupons": [
+        {
+            "couponId": {
+                "id": "CPN-2a6ee7b7-8e25-47ea-0"
+            },
+            "couponType": "CART_WISE",
+            "couponDetails": {
+                "couponType": "CART_WISE",
+                "discount": 20,
+                "threshold": 500
+            }
+        },
+        {
+            "couponId": {
+                "id": "CPN-2a6ee7b7-8e25-47ea-1"
+            },
+            "couponType": "CART_WISE",
+            "couponDetails": {
+                "couponType": "CART_WISE",
+                "discount": 30,
+                "threshold": 1000
+            }
+        },
+        {
+            "couponId": {
+                "id": "CPN-2a6ee7b7-8e25-47ea-2"
+            },
+            "couponType": "BXGY_BY_ID",
+            "couponDetails": {
+                "couponType": "BXGY_BY_ID",
+                "x": 2,
+                "y": 1,
+                "productBuyIds": [
+                    "PRD-2a6ee7b7-8e25-47ea-5",
+                    "PRD-2a6ee7b7-8e25-47ea-4"
+                ],
+                "productGetIds": [
+                    "PRD-2a6ee7b7-8e25-47ea-3"
+                ],
+                "repetitionLimit": 1
+            }
+        },
+        {
+            "couponId": {
+                "id": "CPN-2a6ee7b7-8e25-47ea-3"
+            },
+            "couponType": "BXGY_BY_ID",
+            "couponDetails": {
+                "couponType": "BXGY_BY_ID",
+                "x": 5,
+                "y": 1,
+                "productBuyIds": [
+                    "PRD-2a6ee7b7-8e25-47ea-0"
+                ],
+                "productGetIds": [
+                    "PRD-2a6ee7b7-8e25-47ea-1"
+                ],
+                "repetitionLimit": 3
+            }
+        },
+        {
+            "couponId": {
+                "id": "CPN-2a6ee7b7-8e25-47ea-4"
+            },
+            "couponType": "PRODUCT_WISE_BY_ID",
+            "couponDetails": {
+                "couponType": "PRODUCT_WISE_BY_ID",
+                "discount": 40,
+                "productIds": [
+                    "PRD-2a6ee7b7-8e25-47ea-2",
+                    "PRD-2a6ee7b7-8e25-47ea-3"
+                ]
+            }
+        },
+        {
+            "couponId": {
+                "id": "CPN-2a6ee7b7-8e25-47ea-5"
+            },
+            "couponType": "PRODUCT_WISE_BY_ID",
+            "couponDetails": {
+                "couponType": "PRODUCT_WISE_BY_ID",
+                "discount": 40,
+                "productIds": [
+                    "PRD-2a6ee7b7-8e25-47ea-2",
+                    "PRD-2a6ee7b7-8e25-47ea-3"
+                ]
+            }
+        }
+    ]
+}
