@@ -1,4 +1,4 @@
-curl --location 'http://localhost:8080/coupon/create' \
+curl --location --request PUT 'http://localhost:8080/coupon/update?id=CPN-3983e3d7-f77e-45ad-8' \
 --header 'Content-Type: application/json' \
 --data '{
     "body": {
@@ -6,11 +6,14 @@ curl --location 'http://localhost:8080/coupon/create' \
             "couponId": {
                 "id": "CPN-3983e3d7-f77e-45ad-8"
             },
-            "couponType": "CART_WISE",
+            "couponType": "BXGY_BY_CTG",
             "couponDetails": {
-                "couponType": "CART_WISE",
+                "couponType": "BXGY_BY_CTG",
                 "discount": 20,
-                "threshold": 500
+                "x": 4,
+                "y": 1,
+                "productBuyCategory": ["ELECTRONICS"],
+                "productGetCategory": ["FASHION"]
             }
         }
     }

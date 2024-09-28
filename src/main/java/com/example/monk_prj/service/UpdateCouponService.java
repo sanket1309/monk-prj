@@ -28,6 +28,8 @@ public class UpdateCouponService extends AbstractServiceStructure<UpdateCouponRe
             log.error("CreateCouponRequest is null");
             throw new RuntimeException();
         }
+        String id = serviceRequest.getRequestParams().getOrDefault("id",null);
+        updateCouponRequest.getCoupon().getCouponId().setId(id);
         log.info("request : {}", updateCouponRequest);
         Coupon.validate(updateCouponRequest.getCoupon());
         return updateCouponRequest;

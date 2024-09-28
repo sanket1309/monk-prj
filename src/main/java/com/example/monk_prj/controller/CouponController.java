@@ -67,8 +67,9 @@ public class CouponController {
     }
 
     @RequestMapping(value = ApiEndpoints.UPDATE_COUPON, method = RequestMethod.PUT)
-    ServiceResponse updateCoupon(@RequestBody ServiceRequest serviceRequest, HttpServletResponse httpServletResponse){
+    ServiceResponse updateCoupon(@RequestParam Map<String, String> requestParams,@RequestBody ServiceRequest serviceRequest, HttpServletResponse httpServletResponse){
         log.info("Request received for {}, request = {}", ApiEndpoints.UPDATE_COUPON, serviceRequest);
+        serviceRequest.setRequestParams(requestParams);
         ServiceResponse serviceResponse = updateCouponService.execute(serviceRequest);
         log.info("Response for {}, response = {}", ApiEndpoints.UPDATE_COUPON, serviceResponse);
         return serviceResponse;
