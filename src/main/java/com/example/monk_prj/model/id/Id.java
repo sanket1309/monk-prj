@@ -1,6 +1,8 @@
 package com.example.monk_prj.model.id;
 
+import com.example.monk_prj.enums.ErrorTypes;
 import com.example.monk_prj.enums.IdPrefix;
+import com.example.monk_prj.exception.CouponException;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -37,16 +39,16 @@ public abstract class Id {
     public static void validateId(Id id){
         if(Objects.isNull(id)){
             log.error("id object is null");
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_ID);
         }
         if(StringUtils.isBlank(id.getId())){
             log.error("id is blank");
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_ID);
         }
 
         if(id.getId().length() != LENGTH){
             log.error("id length is incorrect");
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_ID);
         }
     }
 }

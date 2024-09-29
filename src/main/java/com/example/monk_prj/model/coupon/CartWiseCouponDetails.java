@@ -1,6 +1,8 @@
 package com.example.monk_prj.model.coupon;
 
 import com.example.monk_prj.enums.CouponType;
+import com.example.monk_prj.enums.ErrorTypes;
+import com.example.monk_prj.exception.CouponException;
 import com.example.monk_prj.model.Cart;
 import com.example.monk_prj.model.coupon.appliedcoupons.AppliedCouponCart;
 import lombok.Data;
@@ -16,7 +18,7 @@ public class CartWiseCouponDetails extends CouponDetails{
         CouponDetails.validate(cartWiseCouponDetails);
         if(cartWiseCouponDetails.getThreshold() <= 0){
             log.error("Invalid threshold = {}", cartWiseCouponDetails.getThreshold());
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_THRESHOLD_AMOUNT);
         }
     }
 

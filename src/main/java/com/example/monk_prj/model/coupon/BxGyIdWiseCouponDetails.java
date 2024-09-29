@@ -1,7 +1,9 @@
 package com.example.monk_prj.model.coupon;
 
 import com.example.monk_prj.enums.CouponType;
+import com.example.monk_prj.enums.ErrorTypes;
 import com.example.monk_prj.enums.ProductCategory;
+import com.example.monk_prj.exception.CouponException;
 import com.example.monk_prj.model.Cart;
 import com.example.monk_prj.model.Product;
 import com.example.monk_prj.model.coupon.appliedcoupons.AppliedCouponCart;
@@ -31,11 +33,11 @@ public class BxGyIdWiseCouponDetails extends BxGyCouponDetails{
         BxGyCouponDetails.validate(bxGyIdWiseCouponDetails);
         if(CollectionUtils.isEmpty(bxGyIdWiseCouponDetails.getProductBuyIds())){
             log.error("buy ids are empty");
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_BUY_PRODUCT_IDS);
         }
         if(CollectionUtils.isEmpty(bxGyIdWiseCouponDetails.getProductGetIds())){
             log.error("get ids are empty");
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_GET_PRODUCT_IDS);
         }
         for(String id : bxGyIdWiseCouponDetails.getProductBuyIds()){
             ProductId.validateId(new ProductId(id));

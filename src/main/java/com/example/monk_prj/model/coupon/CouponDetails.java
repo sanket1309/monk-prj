@@ -1,6 +1,8 @@
 package com.example.monk_prj.model.coupon;
 
 import com.example.monk_prj.enums.CouponType;
+import com.example.monk_prj.enums.ErrorTypes;
+import com.example.monk_prj.exception.CouponException;
 import com.example.monk_prj.model.Cart;
 import com.example.monk_prj.model.coupon.appliedcoupons.AppliedCouponCart;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -26,18 +28,18 @@ public abstract class CouponDetails {
     public static void validate(CouponDetails couponDetails){
         if(couponDetails == null){
             log.error("couponDetails is null");
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_COUPON_DETAILS);
         }
         if(couponDetails.getDiscount() <= 0 || couponDetails.getDiscount() >= 100){
             log.error("Invalid discount = {}", couponDetails.getDiscount());
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_DISCOUNT_PERCENT);
         }
     }
 
     public static void validateAll(CouponDetails couponDetails){
         if(couponDetails == null){
             log.error("couponDetails is null");
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_COUPON_DETAILS);
         }
         if(couponDetails instanceof CartWiseCouponDetails){
             CartWiseCouponDetails.validate((CartWiseCouponDetails)couponDetails);
@@ -47,7 +49,7 @@ public abstract class CouponDetails {
             ProductWiseCouponDetails.validateAll((ProductWiseCouponDetails)couponDetails);
         }else{
             log.error("couponDetails is of invalid type");
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_COUPON_DETAILS);
         }
     }
 }

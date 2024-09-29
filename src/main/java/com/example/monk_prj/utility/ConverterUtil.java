@@ -1,6 +1,8 @@
 package com.example.monk_prj.utility;
 
 import com.example.monk_prj.enums.CouponType;
+import com.example.monk_prj.enums.ErrorTypes;
+import com.example.monk_prj.exception.CouponException;
 import com.example.monk_prj.request.CreateCouponRequest;
 import com.example.monk_prj.request.ServiceRequest;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -18,7 +20,7 @@ public class ConverterUtil {
         Optional<Object> bodyOptional = Optional.of(serviceRequest).map(ServiceRequest::getBody);
         if(bodyOptional.isEmpty()){
             log.error("body not found in serviceRequest = {}", serviceRequest);
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_REQUEST_BODY);
         }
         Object body = bodyOptional.get();
         try{
@@ -26,7 +28,7 @@ public class ConverterUtil {
             return JsonMapper.convertObjectToClass(body, tClass);
         }catch (Exception ex){
             log.error("Error occurred while parsing request body, ",ex);
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_REQUEST_BODY);
         }
     }
 }

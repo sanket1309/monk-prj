@@ -1,5 +1,6 @@
 package com.example.monk_prj.enums;
 
+import com.example.monk_prj.exception.CouponException;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -24,14 +25,14 @@ public enum CouponType {
     public static void validate(CouponType couponType){
         if(couponType == null){
             log.error("couponType is null");
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_COUPON_TYPE,"couponType is null");
         }
 //        for(CouponType couponType_ : values()){
 //            if(couponType == couponType_){
 //                if(couponType_.getSubTypeClass() == null && couponSubType != null
 //                || couponType_.getSubTypeClass() != null && !couponType_.getSubTypeClass().isInstance(couponSubType)){
 //                    log.error("Invalid couponSubType = {}, for couponType = {}", couponSubType, couponType);
-//                    throw new RuntimeException();
+//                    throw new CouponEXception();
 //                }
 //            }
 //        }

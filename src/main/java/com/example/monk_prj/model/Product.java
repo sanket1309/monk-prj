@@ -1,6 +1,8 @@
 package com.example.monk_prj.model;
 
+import com.example.monk_prj.enums.ErrorTypes;
 import com.example.monk_prj.enums.ProductCategory;
+import com.example.monk_prj.exception.CouponException;
 import com.example.monk_prj.model.id.CouponId;
 import com.example.monk_prj.model.id.Id;
 import com.example.monk_prj.model.id.ProductId;
@@ -30,7 +32,7 @@ public class Product {
     public static void validate(Product product){
         if(Objects.isNull(product)){
             log.error("product is null");
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_PRODUCT,"product is null");
         }
         if(Objects.isNull(product.getProductId())){
             product.setProductId(new ProductId());
@@ -38,15 +40,15 @@ public class Product {
         ProductId.validateId(product.getProductId());
         if(StringUtils.isBlank(product.getProductName())){
             log.error("productName is blank");
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.BLANK_PRODUCT_NAME);
         }
         if(product.getProductCategory() == null){
             log.error("productCategory is invalid");
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_PRODUCT_CATEGORY);
         }
         if(product.getPrice() <= 0){
             log.error("price is invalid");
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_PRICE);
         }
     }
 }

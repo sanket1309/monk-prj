@@ -1,5 +1,7 @@
 package com.example.monk_prj.service;
 
+import com.example.monk_prj.enums.ErrorTypes;
+import com.example.monk_prj.exception.CouponException;
 import com.example.monk_prj.model.Cart;
 import com.example.monk_prj.model.coupon.Coupon;
 import com.example.monk_prj.repository.CouponRepository;
@@ -33,7 +35,7 @@ public class GetApplicableCouponService extends AbstractServiceStructure<GetAppl
         GetApplicableCouponRequest getApplicableCouponRequest = ConverterUtil.getServiceRequest(serviceRequest, GetApplicableCouponRequest.class);
         if(Objects.isNull(getApplicableCouponRequest)){
             log.error("getApplicableCouponRequest is null");
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_REQUEST_BODY);
         }
         log.info("request : {}", getApplicableCouponRequest);
         Cart.validate(getApplicableCouponRequest.getCart());

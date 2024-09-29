@@ -1,5 +1,7 @@
 package com.example.monk_prj.service;
 
+import com.example.monk_prj.enums.ErrorTypes;
+import com.example.monk_prj.exception.CouponException;
 import com.example.monk_prj.model.coupon.Coupon;
 import com.example.monk_prj.repository.CouponRepository;
 import com.example.monk_prj.request.CreateCouponRequest;
@@ -26,7 +28,7 @@ public class UpdateCouponService extends AbstractServiceStructure<UpdateCouponRe
         UpdateCouponRequest updateCouponRequest = ConverterUtil.getServiceRequest(serviceRequest, UpdateCouponRequest.class);
         if(Objects.isNull(updateCouponRequest)){
             log.error("CreateCouponRequest is null");
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_REQUEST_BODY);
         }
         String id = serviceRequest.getRequestParams().getOrDefault("id",null);
         updateCouponRequest.getCoupon().getCouponId().setId(id);

@@ -1,6 +1,8 @@
 package com.example.monk_prj.model.coupon;
 
+import com.example.monk_prj.enums.ErrorTypes;
 import com.example.monk_prj.enums.ProductCategory;
+import com.example.monk_prj.exception.CouponException;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.extern.slf4j.Slf4j;
@@ -22,7 +24,7 @@ public abstract class ProductWiseCouponDetails extends CouponDetails{
             ProductIdWiseCouponDetails.validate(productWiseCouponDetails);
         }else{
             log.error("productWiseCouponDetails is invalid");
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_COUPON_DETAILS);
         }
     }
 }

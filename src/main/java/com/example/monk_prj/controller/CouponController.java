@@ -43,7 +43,7 @@ public class CouponController {
     @RequestMapping(value = ApiEndpoints.CREATE_COUPON, method = RequestMethod.POST)
     ServiceResponse createCoupon(@RequestBody ServiceRequest serviceRequest, HttpServletResponse httpServletResponse){
         log.info("Request received for {}, request = {}", ApiEndpoints.CREATE_COUPON, serviceRequest);
-        ServiceResponse serviceResponse = createCouponService.execute(serviceRequest);
+        ServiceResponse serviceResponse = createCouponService.execute(serviceRequest, httpServletResponse);
         log.info("Response for {}, response = {}", ApiEndpoints.CREATE_COUPON, serviceResponse);
         return serviceResponse;
     }
@@ -51,7 +51,7 @@ public class CouponController {
     @RequestMapping(value = ApiEndpoints.GET_ALL_COUPONS, method = RequestMethod.GET)
     ServiceResponse getAllCoupons(HttpServletResponse httpServletResponse){
         log.info("Request received for {}", ApiEndpoints.GET_ALL_COUPONS);
-        ServiceResponse serviceResponse = getAllCouponService.execute(new ServiceRequest());
+        ServiceResponse serviceResponse = getAllCouponService.execute(new ServiceRequest(), httpServletResponse);
         log.info("Response for {}, response = {}", ApiEndpoints.GET_ALL_COUPONS, serviceResponse);
         return serviceResponse;
     }
@@ -61,7 +61,7 @@ public class CouponController {
         log.info("Request received for {}, params = {}", ApiEndpoints.GET_COUPON_BY_ID, requestParams);
         ServiceRequest serviceRequest = new ServiceRequest();
         serviceRequest.setRequestParams(requestParams);
-        ServiceResponse serviceResponse = getCouponService.execute(serviceRequest);
+        ServiceResponse serviceResponse = getCouponService.execute(serviceRequest, httpServletResponse);
         log.info("Response for {}, response = {}", ApiEndpoints.GET_COUPON_BY_ID, serviceResponse);
         return serviceResponse;
     }
@@ -70,7 +70,7 @@ public class CouponController {
     ServiceResponse updateCoupon(@RequestParam Map<String, String> requestParams,@RequestBody ServiceRequest serviceRequest, HttpServletResponse httpServletResponse){
         log.info("Request received for {}, request = {}", ApiEndpoints.UPDATE_COUPON, serviceRequest);
         serviceRequest.setRequestParams(requestParams);
-        ServiceResponse serviceResponse = updateCouponService.execute(serviceRequest);
+        ServiceResponse serviceResponse = updateCouponService.execute(serviceRequest, httpServletResponse);
         log.info("Response for {}, response = {}", ApiEndpoints.UPDATE_COUPON, serviceResponse);
         return serviceResponse;
     }
@@ -80,7 +80,7 @@ public class CouponController {
         log.info("Request received for {}", ApiEndpoints.DELETE_COUPON_BY_ID);
         ServiceRequest serviceRequest = new ServiceRequest();
         serviceRequest.setRequestParams(requestParams);
-        ServiceResponse serviceResponse = deleteCouponService.execute(serviceRequest);
+        ServiceResponse serviceResponse = deleteCouponService.execute(serviceRequest, httpServletResponse);
         log.info("Response for {}, response = {}", ApiEndpoints.DELETE_COUPON_BY_ID, serviceResponse);
         return serviceResponse;
     }
@@ -88,7 +88,7 @@ public class CouponController {
     @RequestMapping(value = ApiEndpoints.GET_APPLICABLE_COUPONS, method = RequestMethod.POST)
     ServiceResponse getApplicableCoupons(@RequestBody ServiceRequest serviceRequest, HttpServletResponse httpServletResponse){
         log.info("Request received for {}, request = {}", ApiEndpoints.GET_APPLICABLE_COUPONS, serviceRequest);
-        ServiceResponse serviceResponse = getApplicableCouponService.execute(serviceRequest);
+        ServiceResponse serviceResponse = getApplicableCouponService.execute(serviceRequest, httpServletResponse);
         log.info("Response for {}, response = {}", ApiEndpoints.GET_APPLICABLE_COUPONS, serviceResponse);
         return serviceResponse;
     }
@@ -97,7 +97,7 @@ public class CouponController {
     ServiceResponse applyCoupons(@RequestParam Map<String, String> requestParams,@RequestBody ServiceRequest serviceRequest, HttpServletResponse httpServletResponse){
         log.info("Request received for {}, params = {}, request = {}", ApiEndpoints.APPLY_COUPON, requestParams, serviceRequest);
         serviceRequest.setRequestParams(requestParams);
-        ServiceResponse serviceResponse = applyCouponService.execute(serviceRequest);
+        ServiceResponse serviceResponse = applyCouponService.execute(serviceRequest, httpServletResponse);
         log.info("Response for {}, response = {}", ApiEndpoints.APPLY_COUPON, serviceResponse);
         return serviceResponse;
     }

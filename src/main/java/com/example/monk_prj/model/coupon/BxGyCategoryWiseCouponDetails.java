@@ -1,7 +1,9 @@
 package com.example.monk_prj.model.coupon;
 
 import com.example.monk_prj.enums.CouponType;
+import com.example.monk_prj.enums.ErrorTypes;
 import com.example.monk_prj.enums.ProductCategory;
+import com.example.monk_prj.exception.CouponException;
 import com.example.monk_prj.model.Cart;
 import com.example.monk_prj.model.coupon.appliedcoupons.AppliedCouponCart;
 import lombok.Data;
@@ -21,11 +23,11 @@ public class BxGyCategoryWiseCouponDetails extends BxGyCouponDetails{
         BxGyCouponDetails.validate(bxGyCategoryWiseCouponDetails);
         if(CollectionUtils.isEmpty(bxGyCategoryWiseCouponDetails.getProductBuyCategory())){
             log.error("Invalid product x category");
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_BUY_PRODUCT_CATEGORY);
         }
         if(CollectionUtils.isEmpty(bxGyCategoryWiseCouponDetails.getProductGetCategory())){
             log.error("Invalid product y category");
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_GET_PRODUCT_CATEGORY);
         }
     }
 

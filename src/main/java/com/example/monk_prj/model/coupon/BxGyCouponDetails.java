@@ -1,5 +1,7 @@
 package com.example.monk_prj.model.coupon;
 
+import com.example.monk_prj.enums.ErrorTypes;
+import com.example.monk_prj.exception.CouponException;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.AllArgsConstructor;
@@ -18,15 +20,15 @@ public abstract class BxGyCouponDetails extends CouponDetails{
         CouponDetails.validate(bxGyCouponDetails);
         if(bxGyCouponDetails.getX() <= 0){
             log.error("Invalid x = {}", bxGyCouponDetails.getX());
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_X_AMOUNT);
         }
         if(bxGyCouponDetails.getY() <= 0){
             log.error("Invalid y = {}", bxGyCouponDetails.getY());
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_Y_AMOUNT);
         }
         if(bxGyCouponDetails.getRepetitionLimit() <= 0){
             log.error("Repitition limit = {}", bxGyCouponDetails.getRepetitionLimit());
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_REPETITION_LIMIT);
         }
     }
     public static void validateAll(BxGyCouponDetails bxGyCouponDetails){
@@ -37,7 +39,7 @@ public abstract class BxGyCouponDetails extends CouponDetails{
             BxGyIdWiseCouponDetails.validate((BxGyIdWiseCouponDetails)bxGyCouponDetails);
         }else{
             log.error("bxGyCouponDetails is invalid");
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_COUPON_DETAILS);
         }
     }
 }

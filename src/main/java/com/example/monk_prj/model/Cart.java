@@ -1,6 +1,8 @@
 package com.example.monk_prj.model;
 
 import com.example.monk_prj.enums.CouponType;
+import com.example.monk_prj.enums.ErrorTypes;
+import com.example.monk_prj.exception.CouponException;
 import com.example.monk_prj.model.coupon.Coupon;
 import com.example.monk_prj.model.coupon.CouponDetails;
 import com.example.monk_prj.model.id.CartId;
@@ -65,7 +67,7 @@ public class Cart {
     public static void validate(Cart cart){
         if(Objects.isNull(cart)){
             log.error("cart is null");
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_CART,"cart is null");
         }
 
         if(Objects.isNull(cart.getCartId())){
@@ -74,7 +76,7 @@ public class Cart {
         CouponId.validateId(cart.getCartId());
         if(CollectionUtils.isEmpty(cart.getCartItems())){
             log.error("Cart is empty");
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.EMPTY_CART,"Cart is empty");
         }
         for(ProductOrder productOrder : cart.getCartItems()){
             ProductOrder.validate(productOrder);

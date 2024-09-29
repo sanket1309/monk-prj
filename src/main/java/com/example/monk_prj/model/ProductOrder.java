@@ -1,5 +1,7 @@
 package com.example.monk_prj.model;
 
+import com.example.monk_prj.enums.ErrorTypes;
+import com.example.monk_prj.exception.CouponException;
 import com.example.monk_prj.model.id.OrderId;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,12 +26,12 @@ public class ProductOrder {
     public static void validate(ProductOrder productOrder){
         if(Objects.isNull(productOrder)){
             log.error("productOrder is null");
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_PRODUCT_ORDER);
         }
         Product.validate(productOrder.getProduct());
         if(productOrder.getQuantity() < 1){
             log.error("quantity is invalid");
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_ORDER_QUANTITY);
         }
     }
 }

@@ -1,7 +1,9 @@
 package com.example.monk_prj.model.coupon;
 
 import com.example.monk_prj.enums.CouponType;
+import com.example.monk_prj.enums.ErrorTypes;
 import com.example.monk_prj.enums.ProductCategory;
+import com.example.monk_prj.exception.CouponException;
 import com.example.monk_prj.model.Cart;
 import com.example.monk_prj.model.Product;
 import com.example.monk_prj.model.coupon.appliedcoupons.AppliedCouponCart;
@@ -29,7 +31,7 @@ public class ProductIdWiseCouponDetails extends ProductWiseCouponDetails {
         ProductWiseCouponDetails.validate(productIdWiseCouponDetails);
         if(CollectionUtils.isEmpty(productIdWiseCouponDetails.getProductIds())){
             log.error("Empty product ids");
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_PRODUCT_ID);
         }
         for (ProductId productId : productIdWiseCouponDetails.getProductIds()){
             ProductId.validateId(productId);

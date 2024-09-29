@@ -1,6 +1,8 @@
 package com.example.monk_prj.model.coupon;
 
 import com.example.monk_prj.enums.CouponType;
+import com.example.monk_prj.enums.ErrorTypes;
+import com.example.monk_prj.exception.CouponException;
 import com.example.monk_prj.model.id.CouponId;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,7 +23,7 @@ public class Coupon {
     public static void validate(Coupon coupon){
         if(Objects.isNull(coupon)){
             log.error("coupon is null");
-            throw new RuntimeException();
+            throw new CouponException(ErrorTypes.INVALID_COUPON);
         }
 
         if(Objects.isNull(coupon.getCouponId())){
