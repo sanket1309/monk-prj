@@ -74,8 +74,35 @@ IMPLEMENTATION
         }
     ```
 
-  - Database
+
+- Database
     InMemory DB is used to avoid schema and transactional complications in SQL
+  
+
+- Errors handled
+    - `INVALID_REQUEST_BODY`
+    - `INVALID_CART`
+    - `EMPTY_CART`
+    - `INVALID_PRODUCT`
+    - `BLANK_PRODUCT_NAME`
+    - `INVALID_PRODUCT_CATEGORY`
+    - `INVALID_PRODUCT_ID`
+    - `INVALID_PRICE`
+    - `INVALID_PRODUCT_ORDER`
+    - `INVALID_ORDER_QUANTITY`
+    - `INVALID_BUY_PRODUCT_CATEGORY`
+    - `INVALID_GET_PRODUCT_CATEGORY`
+    - `INVALID_BUY_PRODUCT_IDS`
+    - `INVALID_GET_PRODUCT_IDS`
+    - `INVALID_THRESHOLD_AMOUNT`
+    - `INVALID_X_AMOUNT`
+    - `INVALID_Y_AMOUNT`
+    - `INVALID_REPETITION_LIMIT`
+    - `INVALID_DISCOUNT_PERCENT`
+    - `INVALID_COUPON_DETAILS`
+    - `INVALID_COUPON_TYPE`
+    - `INVALID_COUPON`
+    - `INVALID_ID`
 
   - Constraints and Strategies implemented
 
@@ -83,7 +110,6 @@ IMPLEMENTATION
     - Coupon id  - `CPN-2a6ee7b7-8e25-47ea-3`
     - Product id - `PRD-2a6ee7b7-8e25-47ea-3`
     - Cart id    - `CRT-2a6ee7b7-8e25-47ea-3`
- 
 
   
     Inclusiveness of new strategy with following steps:-
